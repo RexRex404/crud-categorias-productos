@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar categoría</title>
+    <link rel="stylesheet" href="{% static 'categorias/css/estilos.css' %}">
+    <script src="{% static 'categorias/js/confirmar.js' %}"></script>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="encabezado">
+            <img src="{% static 'categorias/img/logo-categorias.png' %}" alt="Categorías">
+            <h1>Eliminar categoría</h1>
+        </div>
+
+        {% if total_productos > 0 %}
+        <div class="aviso">
+            ⚠️ Esta categoría tiene <strong>{{ total_productos }}</strong> producto(s) asociado(s).
+            Si continúas, esos productos también se eliminarán (CASCADE).
+        </div>
+        {% endif %}
+
+        <p>¿Seguro que deseas eliminar <strong>{{ categoria.nombre }}</strong>?</p>
+
+        <form method="POST" onsubmit="confirmarEliminacion(event, '{{ categoria.nombre }}')">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-eliminar">Sí, eliminar</button>
+            <a href="{% url 'categorias:lista' %}" class="btn btn-editar">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

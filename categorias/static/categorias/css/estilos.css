@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+    padding: 30px;
+}
+
+.contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 3px solid #39A900;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.encabezado img {
+    width: 40px;
+    height: 40px;
+}
+
+.encabezado h1 {
+    color: #39A900;
+    font-size: 22px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-crear {
+    background-color: #39A900;
+    color: #fff;
+    margin-bottom: 18px;
+}
+
+.btn-editar {
+    background-color: #2b6cb0;
+    color: #fff;
+}
+
+.btn-eliminar {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+th {
+    background-color: #eef7e6;
+    color: #2c6e00;
+}
+
+.acciones {
+    display: flex;
+    gap: 8px;
+}
+
+.enlace-productos {
+    color: #FF5800;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form-grupo {
+    margin-bottom: 16px;
+}
+
+.form-grupo label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.form-grupo input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.aviso {
+    background-color: #fff3e0;
+    border-left: 4px solid #FF5800;
+    padding: 12px 15px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+}

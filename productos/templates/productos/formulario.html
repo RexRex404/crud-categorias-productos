@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ titulo }}</title>
+    <link rel="stylesheet" href="{% static 'productos/css/estilos.css' %}">
+    <script src="{% static 'productos/js/confirmar.js' %}"></script>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="encabezado">
+            <img src="{% static 'productos/img/logo-productos.png' %}" alt="Productos">
+            <h1>{{ titulo }}</h1>
+        </div>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-grupo">
+                <label for="id_nombre">Nombre</label>
+                {{ formulario.nombre }}
+            </div>
+            <div class="form-grupo">
+                <label for="id_precio">Precio</label>
+                {{ formulario.precio }}
+            </div>
+            <div class="form-grupo">
+                <label for="id_categoria">Categoría</label>
+                {{ formulario.categoria }}
+            </div>
+            <div class="form-grupo">
+                <label for="id_imagen">Imagen</label>
+                <input type="file" name="imagen" id="id_imagen" accept="image/*" onchange="mostrarVistaPrevia(this)">
+                <img id="vista-previa" class="vista-previa" style="display:none;">
+            </div>
+            <button type="submit" class="btn btn-crear">Guardar</button>
+            <a href="{% url 'productos:lista' %}" class="btn btn-editar">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

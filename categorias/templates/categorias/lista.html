@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Categorías</title>
+    <link rel="stylesheet" href="{% static 'categorias/css/estilos.css' %}">
+</head>
+<body>
+    <div class="contenedor">
+        <div class="encabezado">
+            <img src="{% static 'categorias/img/logo-categorias.png' %}" alt="Categorías">
+            <h1>Categorías</h1>
+        </div>
+
+        <a href="{% url 'categorias:crear' %}" class="btn btn-crear">+ Nueva categoría</a>
+        <a href="{% url 'productos:lista' %}" class="enlace-productos">Ver productos →</a>
+
+        <table>
+            <thead>
+                <tr><th>Nombre</th><th>Acciones</th></tr>
+            </thead>
+            <tbody>
+                {% for categoria in categorias %}
+                <tr>
+                    <td>{{ categoria.nombre }}</td>
+                    <td class="acciones">
+                        <a href="{% url 'categorias:editar' categoria.id %}" class="btn btn-editar">Editar</a>
+                        <a href="{% url 'categorias:eliminar' categoria.id %}" class="btn btn-eliminar">Eliminar</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="2">No hay categorías registradas.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
